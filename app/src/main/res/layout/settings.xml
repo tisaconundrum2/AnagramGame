@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/title_credits"
+        android:id="@+id/title_settings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/anagram_left"
         android:layout_alignBottom="@id/anagram_left"
         android:layout_centerHorizontal="true"
-        android:text="SETTINGS"
+        android:text="@string/title_settings"
         android:textSize="25sp" />
 
     <TextView
         android:id="@+id/anagram_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/title_credits"
-        android:layout_alignBottom="@id/title_credits"
+        android:layout_alignBaseline="@id/title_settings"
+        android:layout_alignBottom="@id/title_settings"
         android:layout_marginLeft="18dp"
-        android:layout_toRightOf="@id/title_credits"
+        android:layout_toRightOf="@id/title_settings"
         android:text="@string/title_bar_right"
         android:textSize="25sp" />
 
@@ -31,51 +32,58 @@
         android:layout_alignParentTop="true"
         android:layout_marginRight="14dp"
         android:layout_marginTop="72dp"
-        android:layout_toLeftOf="@id/title_credits"
+        android:layout_toLeftOf="@id/title_settings"
         android:text="@string/title_bar_left"
         android:textSize="25sp" />
 
 
     <TextView
-        android:text="@string/minimum_number_of_blocks"
+        android:id="@+id/min_num_tile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/Programming"
+        android:layout_below="@+id/title_settings"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:layout_below="@+id/title_credits"
-        android:textSize="20dp"
-        />
+        android:text="@string/minimum_number_of_blocks"
+        android:textSize="20dp" />
+
     <EditText
-        android:text="4"
+        android:id="@+id/programmer_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/programmer_name"
+        android:layout_below="@+id/min_num_tile"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:layout_below="@+id/Programming"
-        android:textSize="20dp"
-        />
+        android:text="0"
+        android:textSize="20dp" />
 
     <TextView
-        android:text="@string/maximum_number_of_blocks"
+        android:id="@+id/Designer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/Designer"
+        android:layout_below="@+id/programmer_name"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:layout_below="@+id/programmer_name"
-        android:textSize="20dp"
-        />
+        android:text="@string/maximum_number_of_blocks"
+        android:textSize="20dp" />
+
     <EditText
-        android:text="6"
+        android:id="@+id/max_num_tile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/designer_name"
+        android:layout_below="@+id/Designer"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:layout_below="@+id/Designer"
-        android:textSize="20dp"
-        />
+        android:text="0"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/max_num_tile"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="Music On/Off"
+        android:textSize="20dp" />
 
 </RelativeLayout>
