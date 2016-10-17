@@ -35,29 +35,48 @@
         android:text="@string/title_anagram_left"
         android:textSize="25sp" />
 
+
     <TextView
         android:text="Programming"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView1"
+        android:id="@+id/Programming"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/title_credits"
         />
-
     <TextView
         android:text="Nicholas Finch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView2" />
-
+        android:id="@+id/programmer_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/Programming"
+        />
     <TextView
-        android:text="Design"
+        android:text="Designer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView3" />
-
+        android:id="@+id/Designer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/programmer_name"
+        />
     <TextView
-        android:text="Zach Pattenson"
+        android:text="Zach Patten"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView4" />
+        android:id="@+id/designer_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/Designer"
+        />
+
+
+
+
+
+
+
 </RelativeLayout>
