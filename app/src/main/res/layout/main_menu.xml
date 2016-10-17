@@ -43,7 +43,7 @@
         android:textSize="25sp" />
 
     <ImageView
-        android:id="@+id/classic"
+        android:id="@+id/splash_screen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@mipmap/splash"
@@ -69,7 +69,7 @@
         android:layout_height="wrap_content"
         android:text="Credits"
         android:textSize="25dp"
-        android:id="@+id/textView"
+        android:id="@+id/credits_text"
         android:layout_below="@+id/play_button"
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true" />
@@ -84,7 +84,7 @@
         android:src="@mipmap/play_logo"
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/classic"
+        android:layout_below="@+id/splash_screen"
         />
     
 
