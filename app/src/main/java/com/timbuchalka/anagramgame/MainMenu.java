@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.RelativeLayout;
 
 public class MainMenu extends AppCompatActivity {
@@ -14,6 +15,16 @@ public class MainMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_menu);
         anagramLayout = (RelativeLayout) findViewById(R.id.anagram_layout);
+
+        View decorView = getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(uiOptions);
+
+        if (getSupportActionBar() != null){
+            getSupportActionBar().hide();
+        }
+
+
     }
 
     @Override
