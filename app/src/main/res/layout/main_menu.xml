@@ -8,7 +8,7 @@
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
-    tools:context="com.timbuchalka.anagramgame.MainMenu">
+    tools:context="com.tisaconundrum.anagramgame.MainMenu">
 
     <TextView
         android:id="@+id/anagram_middle"

@@ -1,4 +1,4 @@
-package com.timbuchalka.anagramgame;
+package com.tisaconundrum.anagramgame;
 
 import org.junit.Test;
 

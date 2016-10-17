@@ -1,4 +1,4 @@
-package com.timbuchalka.anagramgame;
+package com.tisaconundrum.anagramgame;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

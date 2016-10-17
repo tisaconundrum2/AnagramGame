@@ -1,4 +1,4 @@
-package com.timbuchalka.anagramgame;
+package com.tisaconundrum.anagramgame;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
