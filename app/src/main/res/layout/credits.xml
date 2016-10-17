@@ -44,6 +44,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:layout_below="@+id/title_credits"
+        android:textSize="20dp"
         />
     <TextView
         android:text="@string/programmer_name"
@@ -53,7 +54,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:layout_below="@+id/Programming"
+        android:textSize="20dp"
         />
+
     <TextView
         android:text="@string/designer"
         android:layout_width="wrap_content"
@@ -62,6 +65,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:layout_below="@+id/programmer_name"
+        android:textSize="20dp"
         />
     <TextView
         android:text="@string/designer_name"
@@ -71,6 +75,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:layout_below="@+id/Designer"
+        android:textSize="20dp"
         />
 
 </RelativeLayout>
