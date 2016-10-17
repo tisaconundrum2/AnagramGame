@@ -4,6 +4,7 @@
     <string name="title_anagram_left">|</string>
     <string name="title_anagram_middle"> ANAGRAMS </string>
     <string name="title_anagram_right">|</string>
+    <string name="title_credits"> CREDITS </string>
     <string name="title_activity_settings">Settings</string>
 
 </resources>
