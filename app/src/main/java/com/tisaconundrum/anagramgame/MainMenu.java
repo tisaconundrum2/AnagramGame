@@ -1,17 +1,20 @@
 package com.tisaconundrum.anagramgame;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class MainMenu extends AppCompatActivity {
     private RelativeLayout anagramLayout;
     private Animation compileAnim;
-    private TextView playBtn;
+    private ImageView playBtn, settingsBtn;
     private TextView titleLeft;
     private TextView titleMiddle;
     private TextView titleRight;
@@ -30,12 +33,31 @@ public class MainMenu extends AppCompatActivity {
             getSupportActionBar().hide();
         }
         initMenu();
+        initCredits();
 
     }
 
-    private void initCredits(){}
+    private void initCredits(){
+        settingsBtn = (ImageView) findViewById(R.id.settings_button);
+        settingsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent settingsIntent = new Intent(MainMenu.this, Credits.class);
+                        settingsIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION); //this checks that all animations are done before moving foward
+                        startActivity(settingsIntent);
+                    }
+                }, GameSettings.START_NEW_ACTIVITY_DURATION);
+
+            }
+        });
+    }
     private void initGame(){}
     private void initMenu(){
+        // Making the title look pretty, coming in and out
         titleLeft = (TextView) findViewById(R.id.anagram_left);
         titleMiddle = (TextView) findViewById(R.id.anagram_middle);
         titleRight = (TextView) findViewById(R.id.anagram_right);

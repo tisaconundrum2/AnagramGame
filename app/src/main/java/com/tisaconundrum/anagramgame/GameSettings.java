@@ -13,5 +13,5 @@ public class GameSettings {
     public static final int ANIMATION_HIDE_TITLE_DURATION = 400;
     public static final String PLAYER_SCORE = "Score";
     public static final String HIGH_SCORE = "HighScoreAnagram";
-
+    public static final int START_NEW_ACTIVITY_DURATION = 200;
 }
