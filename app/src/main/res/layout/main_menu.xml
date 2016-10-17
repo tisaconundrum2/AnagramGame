@@ -67,7 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Credits"
-        android:textSize="30dp"
+        android:textSize="25dp"
         android:id="@+id/textView"
         android:layout_below="@+id/play_button"
         android:layout_marginTop="10dp"
@@ -78,13 +78,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
-        android:maxWidth="200dp"
+        android:maxWidth="130dp"
         android:scaleType="fitCenter"
         android:src="@mipmap/play_logo"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/classic"
         />
-
+    
 
 </RelativeLayout>
