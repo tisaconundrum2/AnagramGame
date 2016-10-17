@@ -37,7 +37,7 @@
 
 
     <TextView
-        android:text="Programming"
+        android:text="@string/programmer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/Programming"
@@ -46,7 +46,7 @@
         android:layout_below="@+id/title_credits"
         />
     <TextView
-        android:text="Nicholas Finch"
+        android:text="@string/programmer_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/programmer_name"
@@ -55,7 +55,7 @@
         android:layout_below="@+id/Programming"
         />
     <TextView
-        android:text="Designer"
+        android:text="@string/designer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/Designer"
@@ -64,7 +64,7 @@
         android:layout_below="@+id/programmer_name"
         />
     <TextView
-        android:text="Zach Patten"
+        android:text="@string/designer_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/designer_name"
