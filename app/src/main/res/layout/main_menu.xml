@@ -58,7 +58,7 @@
         android:adjustViewBounds="true"
         android:maxWidth="60dp"
         android:scaleType="fitCenter"
-        android:src="@mipmap/settings"
+        android:src="@mipmap/setting"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
