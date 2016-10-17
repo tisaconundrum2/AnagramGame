@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/game_over_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    tools:context="com.tisaconundrum.anagramgame.Settings"
+    >
 
     <TextView
         android:id="@+id/title_credits"
@@ -37,44 +45,43 @@
 
 
     <TextView
-        android:text="@string/score"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/score"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/title_credits"
-        android:textSize="20dp"
-        />
-    <TextView
-        android:text="@string/score_total"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/total_score"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/score"
-        android:textSize="20dp"
-        />
-    <TextView
-        android:text="@string/high_score"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/high_score"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:layout_below="@+id/total_score"
-        android:textSize="20dp"
-        />
+        android:text="@string/score"
+        android:textSize="20dp" />
+
     <TextView
-        android:text="@string/high_score_total"
+        android:id="@+id/total_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/total_high_score"
+        android:layout_below="@+id/score"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
+        android:text="@string/score_total"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/high_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/total_score"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="@string/high_score"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/total_high_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/high_score"
-        android:textSize="20dp"
-        />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="@string/high_score_total"
+        android:textSize="20dp" />
 
 </RelativeLayout>
