@@ -33,11 +33,12 @@ public class MainMenu extends AppCompatActivity {
             getSupportActionBar().hide();
         }
         initMenu();
+        initSettings();
         initCredits();
 
     }
 
-    private void initCredits(){
+    private void initSettings(){
         settingsBtn = (ImageView) findViewById(R.id.settings_button);
         settingsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,7 +47,7 @@ public class MainMenu extends AppCompatActivity {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        Intent settingsIntent = new Intent(MainMenu.this, Credits.class);
+                        Intent settingsIntent = new Intent(MainMenu.this, Settings.class);
                         settingsIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION); //this checks that all animations are done before moving foward
                         startActivity(settingsIntent);
                     }
@@ -129,6 +130,6 @@ public class MainMenu extends AppCompatActivity {
         titleRight.startAnimation(compileAnim);
 
     }
-    private void initSettings(){}
+    private void initCredits(){}
     public void onBackPressed(){}
 }
