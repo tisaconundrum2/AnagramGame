@@ -11,7 +11,7 @@
     tools:context="com.timbuchalka.anagramgame.MainMenu">
 
     <TextView
-        android:id="@+id/title_credits"
+        android:id="@+id/anagram_middle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/anagram_left"
@@ -24,10 +24,10 @@
         android:id="@+id/anagram_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/title_credits"
-        android:layout_alignBottom="@id/title_credits"
+        android:layout_alignBaseline="@id/anagram_middle"
+        android:layout_alignBottom="@id/anagram_middle"
         android:layout_marginLeft="18dp"
-        android:layout_toRightOf="@id/title_credits"
+        android:layout_toRightOf="@id/anagram_middle"
         android:text="@string/title_anagram_right"
         android:textSize="25sp" />
 
@@ -38,7 +38,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginRight="14dp"
         android:layout_marginTop="72dp"
-        android:layout_toLeftOf="@id/title_credits"
+        android:layout_toLeftOf="@id/anagram_middle"
         android:text="@string/title_anagram_left"
         android:textSize="25sp" />
 
@@ -71,8 +71,7 @@
         android:id="@+id/textView"
         android:layout_below="@+id/play_button"
         android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"
-        />
+        android:layout_centerHorizontal="true" />
 
     <ImageView
         android:id="@+id/play_button"
@@ -86,6 +85,6 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/classic"
         />
-
+    
 
 </RelativeLayout>
