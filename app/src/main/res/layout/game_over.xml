@@ -8,8 +8,7 @@
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
-    tools:context="com.tisaconundrum.anagramgame.Settings"
-    >
+    tools:context="com.tisaconundrum.anagramgame.Settings">
 
     <TextView
         android:id="@+id/title_credits"
