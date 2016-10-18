@@ -24,10 +24,33 @@
         android:src="@mipmap/pause_button" />
 
     <ImageView
+        android:id="@+id/tile1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@mipmap/alph/_A_"
-        />
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/alpha_A" />
+    <ImageView
+        android:id="@+id/tile2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/alpha_P" />
+    <ImageView
+        android:id="@+id/tile3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/alpha_P" />
+    <ImageView
+        android:id="@+id/tile4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/alpha_S" />
 
 
 </RelativeLayout>
