@@ -20,6 +20,7 @@ public class MainMenu extends AppCompatActivity {
     private TextView titleRight;
     private Animation compileAnim;
     private TextView creditsBtn;
+    private ImageView playBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class MainMenu extends AppCompatActivity {
         if (getSupportActionBar() != null){
             getSupportActionBar().hide();
         }
+        initGame();
         titleAnimate();
         initSettings();
         initCredits();
@@ -63,7 +65,28 @@ public class MainMenu extends AppCompatActivity {
             }
         });
     }
-    private void initGame(){}
+    private void initGame(){
+        playBtn = (ImageView) findViewById(R.id.play_button);
+        playBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Intent settingsIntent = new Intent(MainMenu.this, GamePlay.class);
+                            settingsIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION); //this checks that all animations are done before moving foward
+                            startActivity(settingsIntent);
+                        } catch (Exception e){
+                            System.err.println(e.getMessage());
+                        }
+                    }
+                }, GameSettings.START_NEW_ACTIVITY_DURATION);
+
+            }
+        });
+    }
     private void titleAnimate(){
         titleLeft = (TextView) findViewById(R.id.title_bar_left);
         titleMiddle = (TextView) findViewById(R.id.title_anagram);
