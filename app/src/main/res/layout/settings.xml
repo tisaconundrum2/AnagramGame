@@ -4,11 +4,10 @@
     android:id="@+id/settings_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="0dp"
-    android:paddingLeft="0dp"
-    android:paddingRight="0dp"
-    android:paddingTop="0dp"
-    >
+    android:paddingBottom="0sp"
+    android:paddingLeft="0sp"
+    android:paddingRight="0sp"
+    android:paddingTop="0sp">
 
     <TextView
         android:id="@+id/title_settings"
@@ -26,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@id/title_settings"
         android:layout_alignBottom="@id/title_settings"
-        android:layout_marginLeft="18dp"
+        android:layout_marginLeft="18sp"
         android:layout_toRightOf="@id/title_settings"
         android:text="@string/title_bar_right"
         android:textSize="25sp" />
@@ -36,8 +35,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginRight="14dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginRight="14sp"
+        android:layout_marginTop="72sp"
         android:layout_toLeftOf="@id/title_settings"
         android:text="@string/title_bar_left"
         android:textSize="25sp" />
@@ -49,9 +48,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/title_settings"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="40sp"
         android:text="@string/minimum_number_of_blocks"
-        android:textSize="20dp" />
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/programmer_name"
@@ -59,9 +58,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/min_num_tile"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="10sp"
+        android:inputType="number"
         android:text="0"
-        android:textSize="20dp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/Designer"
@@ -69,9 +69,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/programmer_name"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="40sp"
         android:text="@string/maximum_number_of_blocks"
-        android:textSize="20dp" />
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/max_num_tile"
@@ -79,17 +79,18 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/Designer"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="10sp"
+        android:inputType="number"
         android:text="0"
-        android:textSize="20dp" />
+        android:textSize="20sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/max_num_tile"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="40sp"
         android:text="Music On/Off"
-        android:textSize="20dp" />
+        android:textSize="20sp" />
 
 </RelativeLayout>
