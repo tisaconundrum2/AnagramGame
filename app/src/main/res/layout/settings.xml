@@ -105,5 +105,5 @@
         android:adjustViewBounds="true"
         android:maxHeight="24sp"
         android:scaleType="fitCenter"
-        app:srcCompat="@mipmap/sound_on" />
+        app:srcCompat="@mipmap/sound_option" />
 </RelativeLayout>
