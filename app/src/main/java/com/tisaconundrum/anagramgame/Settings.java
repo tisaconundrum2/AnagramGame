@@ -1,10 +1,13 @@
 package com.tisaconundrum.anagramgame;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -19,6 +22,8 @@ public class Settings extends AppCompatActivity {
     private TextView titleMiddle;
     private TextView titleRight;
     private Animation compileAnimation;
+    private ImageView musicButton;
+    private boolean isMusicOn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +44,51 @@ public class Settings extends AppCompatActivity {
     }
 
     private void musicOnOff() {
+        musicButton = (ImageView) findViewById(R.id.music_icon);
+        compileAnimation = AnimationUtils.loadAnimation(Settings.this, R.anim.anim_for_no_button);
+        compileAnimation.setDuration(GameSettings.ANIMATION_OPEN_BUTTON_DURATION);
+        compileAnimation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
 
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                SharedPreferences preferences = getApplicationContext()
+                        .getSharedPreferences(GameSettings.PREFS_NAME, Context.MODE_PRIVATE);
+                isMusicOn = preferences.getBoolean(GameSettings.PLAY_MUSIC, true);
+                if (isMusicOn) {
+                    musicButton.setImageResource(R.mipmap.sound_on);
+                } else {
+                    musicButton.setImageResource(R.mipmap.sound_off);
+                }
+                musicButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        musicButton.setImageDrawable(null);
+                        if (isMusicOn){
+                            isMusicOn = false;
+                            musicButton.setImageResource(R.mipmap.sound_off);
+                        }else{
+                            isMusicOn = true;
+                            musicButton.setImageResource(R.mipmap.sound_on);
+                        }
+                        SharedPreferences preferences = getApplicationContext()
+                                .getSharedPreferences(GameSettings.PREFS_NAME, Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putBoolean(GameSettings.PLAY_MUSIC, isMusicOn);
+                        editor.commit();
+                    }
+                });
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
     }
 
     private void titleAnimate() {
