@@ -8,24 +8,24 @@ import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import static com.tisaconundrum.anagramgame.R.layout.credits;
 
 /**
  * Created by tisaconundrum on 10/17/2016.
  */
 
 public class Credits extends AppCompatActivity{
-
-    private RelativeLayout settingsLayout;
+    private RelativeLayout creditsLayout;
     private TextView titleLeft;
     private TextView titleMiddle;
     private TextView titleRight;
     private Animation compileAnimation;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.settings);
-        settingsLayout = (RelativeLayout) findViewById(R.id.anagram_layout);
+        setContentView(credits);
+        creditsLayout = (RelativeLayout) findViewById(R.id.credits_layout);
 
         View decorView = getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
@@ -35,12 +35,11 @@ public class Credits extends AppCompatActivity{
             getSupportActionBar().hide();
         }
         titleAnimate();
-
     }
 
-    private void titleAnimate() {
+    private void titleAnimate(){
         titleLeft = (TextView) findViewById(R.id.title_bar_left);
-        titleMiddle = (TextView) findViewById(R.id.title_credits);
+        titleMiddle = (TextView) findViewById(R.id.title_settings);
         titleRight = (TextView) findViewById(R.id.title_bar_right);
 
         compileAnimation = AnimationUtils.loadAnimation(Credits.this, R.anim.back_anim_for_title_left);
