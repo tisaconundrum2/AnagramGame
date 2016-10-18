@@ -63,7 +63,7 @@
         android:src="@mipmap/setting" />
 
     <TextView
-        android:id="@+id/credits_text"
+        android:id="@+id/credits_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/play_button"
@@ -83,6 +83,5 @@
         android:maxWidth="130dp"
         android:scaleType="fitCenter"
         android:src="@mipmap/play_logo" />
-
 
 </RelativeLayout>

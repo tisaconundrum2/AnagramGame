@@ -24,6 +24,11 @@
             android:theme="@style/AppTheme.NoActionBar"
             />
 
+        <activity
+            android:name=".Credits"
+            android:label="@string/title_credits"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
     </application>
 
 </manifest>

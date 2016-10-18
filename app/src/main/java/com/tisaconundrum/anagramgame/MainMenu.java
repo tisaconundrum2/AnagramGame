@@ -19,6 +19,7 @@ public class MainMenu extends AppCompatActivity {
     private TextView titleMiddle;
     private TextView titleRight;
     private Animation compileAnim;
+    private TextView creditsBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,7 @@ public class MainMenu extends AppCompatActivity {
         if (getSupportActionBar() != null){
             getSupportActionBar().hide();
         }
-        initMenu();
+        titleAnimate();
         initSettings();
         initCredits();
 
@@ -63,13 +64,11 @@ public class MainMenu extends AppCompatActivity {
         });
     }
     private void initGame(){}
-    private void initMenu(){
-        // Making the title look pretty, coming in and out
+    private void titleAnimate(){
         titleLeft = (TextView) findViewById(R.id.title_bar_left);
         titleMiddle = (TextView) findViewById(R.id.title_anagram);
         titleRight = (TextView) findViewById(R.id.title_bar_right);
 
-        // Set up animation for title left
         compileAnim = AnimationUtils.loadAnimation(MainMenu.this, R.anim.back_anim_for_title_left);
         compileAnim.setDuration(GameSettings.ANIMATION_HIDE_TITLE_DURATION);
         compileAnim.setAnimationListener(new Animation.AnimationListener() {
@@ -91,7 +90,6 @@ public class MainMenu extends AppCompatActivity {
 
         titleLeft.startAnimation(compileAnim);
 
-        // Set up animation for title middle
         compileAnim = AnimationUtils.loadAnimation(MainMenu.this, R.anim.back_anim_for_title_middle);
         compileAnim.setDuration(GameSettings.ANIMATION_HIDE_TITLE_DURATION);
         compileAnim.setAnimationListener(new Animation.AnimationListener() {
@@ -113,7 +111,6 @@ public class MainMenu extends AppCompatActivity {
 
         titleMiddle.startAnimation(compileAnim);
 
-        // Set up animation for title right
         compileAnim = AnimationUtils.loadAnimation(MainMenu.this, R.anim.back_anim_for_title_right);
         compileAnim.setDuration(GameSettings.ANIMATION_HIDE_TITLE_DURATION);
         compileAnim.setAnimationListener(new Animation.AnimationListener() {
@@ -136,6 +133,27 @@ public class MainMenu extends AppCompatActivity {
         titleRight.startAnimation(compileAnim);
 
     }
-    private void initCredits(){}
+    private void initCredits(){
+        creditsBtn = (TextView) findViewById(R.id.credits_button);
+        creditsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Intent settingsIntent = new Intent(MainMenu.this, Credits.class);
+                            settingsIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION); //this checks that all animations are done before moving foward
+                            startActivity(settingsIntent);
+                        } catch (Exception e){
+                            System.err.println(e.getMessage());
+                        }
+                    }
+                }, GameSettings.START_NEW_ACTIVITY_DURATION);
+
+            }
+        });
+    }
     public void onBackPressed(){}
 }

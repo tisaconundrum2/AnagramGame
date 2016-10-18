@@ -33,11 +33,11 @@ public class Settings extends AppCompatActivity {
         if(getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
-        title();
+        titleAnimate();
 
     }
 
-    private void title() {
+    private void titleAnimate() {
         titleLeft = (TextView) findViewById(R.id.title_bar_left);
         titleMiddle = (TextView) findViewById(R.id.title_settings);
         titleRight = (TextView) findViewById(R.id.title_bar_right);
