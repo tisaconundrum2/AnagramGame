@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/settings_layout"
     android:layout_width="match_parent"
@@ -85,12 +86,24 @@
         android:textSize="20sp" />
 
     <TextView
+        android:id="@+id/Music"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/max_num_tile"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40sp"
-        android:text="Music On/Off"
+        android:text="Music: "
         android:textSize="20sp" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/Music"
+        android:layout_toEndOf="@+id/Music"
+        android:layout_toRightOf="@+id/Music"
+        android:adjustViewBounds="true"
+        android:maxHeight="24sp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@mipmap/sound_on" />
 </RelativeLayout>

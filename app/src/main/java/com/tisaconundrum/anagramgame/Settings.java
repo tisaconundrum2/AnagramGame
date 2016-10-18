@@ -34,6 +34,11 @@ public class Settings extends AppCompatActivity {
             getSupportActionBar().hide();
         }
         titleAnimate();
+        musicOnOff();
+
+    }
+
+    private void musicOnOff() {
 
     }
 
