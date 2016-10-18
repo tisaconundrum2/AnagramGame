@@ -67,10 +67,11 @@ public class Settings extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         musicButton.setImageDrawable(null);
-                        if (isMusicOn){
+
+                        if (isMusicOn) {
                             isMusicOn = false;
                             musicButton.setImageResource(R.mipmap.sound_off);
-                        }else{
+                        } else {
                             isMusicOn = true;
                             musicButton.setImageResource(R.mipmap.sound_on);
                         }
@@ -89,6 +90,7 @@ public class Settings extends AppCompatActivity {
 
             }
         });
+        musicButton.startAnimation(compileAnimation);
     }
 
     private void titleAnimate() {
