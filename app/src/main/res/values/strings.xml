@@ -18,5 +18,6 @@
     <string name="maximum_number_of_blocks">Maximum Number of tiles:</string>
     <string name="minimum_number_of_blocks">Minimum Number of tiles:</string>
     <string name="title_settings">SETTINGS</string>
+    <string name="game_play">GAME PLAY</string>
 
 </resources>

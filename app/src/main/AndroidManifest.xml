@@ -29,6 +29,14 @@
             android:label="@string/title_credits"
             android:theme="@style/AppTheme.NoActionBar"
             />
+
+        <activity
+            android:name=".GamePlay"
+            android:label="@string/game_play"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+
+
     </application>
 
 </manifest>
