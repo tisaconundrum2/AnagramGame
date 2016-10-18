@@ -47,9 +47,13 @@ public class MainMenu extends AppCompatActivity {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        Intent settingsIntent = new Intent(MainMenu.this, Settings.class);
-                        settingsIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION); //this checks that all animations are done before moving foward
-                        startActivity(settingsIntent);
+                        try {
+                            Intent settingsIntent = new Intent(MainMenu.this, Settings.class);
+                            settingsIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION); //this checks that all animations are done before moving foward
+                            startActivity(settingsIntent);
+                        } catch (Exception e){
+                            System.err.println(e.getMessage());
+                        }
                     }
                 }, GameSettings.START_NEW_ACTIVITY_DURATION);
 
