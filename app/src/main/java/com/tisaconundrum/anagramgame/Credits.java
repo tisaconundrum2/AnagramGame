@@ -39,7 +39,7 @@ public class Credits extends AppCompatActivity{
 
     private void titleAnimate(){
         titleLeft = (TextView) findViewById(R.id.title_bar_left);
-        titleMiddle = (TextView) findViewById(R.id.title_settings);
+        titleMiddle = (TextView) findViewById(R.id.title_credits);
         titleRight = (TextView) findViewById(R.id.title_bar_right);
 
         compileAnimation = AnimationUtils.loadAnimation(Credits.this, R.anim.back_anim_for_title_left);
