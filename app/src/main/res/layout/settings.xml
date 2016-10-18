@@ -85,25 +85,15 @@
         android:text="0"
         android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/Music"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/max_num_tile"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40sp"
-        android:text="Music: "
-        android:textSize="20sp" />
-
     <ImageView
         android:id="@+id/music_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/Music"
-        android:layout_toEndOf="@+id/Music"
-        android:layout_toRightOf="@+id/Music"
+        android:layout_below="@+id/max_num_tile"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
         android:adjustViewBounds="true"
-        android:maxHeight="24sp"
+        android:maxHeight="44sp"
         android:scaleType="fitCenter"
-        app:srcCompat="@mipmap/sound_option" />
+        app:srcCompat="@mipmap/sound_on" />
 </RelativeLayout>
