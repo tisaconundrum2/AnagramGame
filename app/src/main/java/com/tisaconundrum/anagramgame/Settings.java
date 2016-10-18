@@ -23,14 +23,17 @@ public class Settings extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings);
+        settingsLayout = (RelativeLayout) findViewById(R.id.anagram_layout);
+
         View decorView = getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
+
         if(getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
-        settingsLayout = (RelativeLayout) findViewById(R.id.settings_layout);
         title();
+
     }
 
     private void title() {
