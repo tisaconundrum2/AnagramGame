@@ -8,8 +8,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import static com.tisaconundrum.anagramgame.R.layout.credits;
-
 /**
  * Created by tisaconundrum on 10/17/2016.
  */
@@ -24,7 +22,7 @@ public class Credits extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(credits);
+        setContentView(R.layout.credits);
         creditsLayout = (RelativeLayout) findViewById(R.id.credits_layout);
 
         View decorView = getWindow().getDecorView();

@@ -5,8 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.RelativeLayout;
 
-import static com.tisaconundrum.anagramgame.R.layout.credits;
-
 /**
  * Created by tisaconundrum on 10/17/2016.
  */
@@ -17,7 +15,7 @@ public class GamePlay extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(credits);
+        setContentView(R.layout.game_play);
         gamePlayLayout = (RelativeLayout) findViewById(R.id.game_play_layout);
 
         View decorView = getWindow().getDecorView();
