@@ -12,12 +12,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class MainMenu extends AppCompatActivity {
+
     private RelativeLayout anagramLayout;
-    private Animation compileAnim;
-    private ImageView playBtn, settingsBtn;
+    private ImageView settingsBtn;
     private TextView titleLeft;
     private TextView titleMiddle;
     private TextView titleRight;
+    private Animation compileAnim;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,7 @@ public class MainMenu extends AppCompatActivity {
         initCredits();
 
     }
+
 
     private void initSettings(){
         settingsBtn = (ImageView) findViewById(R.id.settings_button);
@@ -63,9 +65,9 @@ public class MainMenu extends AppCompatActivity {
     private void initGame(){}
     private void initMenu(){
         // Making the title look pretty, coming in and out
-        titleLeft = (TextView) findViewById(R.id.anagram_left);
-        titleMiddle = (TextView) findViewById(R.id.anagram_middle);
-        titleRight = (TextView) findViewById(R.id.anagram_right);
+        titleLeft = (TextView) findViewById(R.id.title_bar_left);
+        titleMiddle = (TextView) findViewById(R.id.title_anagram);
+        titleRight = (TextView) findViewById(R.id.title_bar_right);
 
         // Set up animation for title left
         compileAnim = AnimationUtils.loadAnimation(MainMenu.this, R.anim.back_anim_for_title_left);

@@ -7,38 +7,37 @@
     android:paddingBottom="0dp"
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
-    android:paddingTop="0dp"
-    tools:context="com.tisaconundrum.anagramgame.MainMenu">
+    android:paddingTop="0dp">
 
     <TextView
-        android:id="@+id/anagram_middle"
+        android:id="@+id/title_anagram"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/anagram_left"
-        android:layout_alignBottom="@id/anagram_left"
+        android:layout_alignBaseline="@+id/title_bar_left"
+        android:layout_alignBottom="@id/title_bar_left"
         android:layout_centerHorizontal="true"
-        android:text="@string/title_anagram_middle"
+        android:text="@string/title_anagram"
         android:textSize="25sp" />
 
     <TextView
-        android:id="@+id/anagram_right"
+        android:id="@+id/title_bar_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/anagram_middle"
-        android:layout_alignBottom="@id/anagram_middle"
+        android:layout_alignBaseline="@id/title_anagram"
+        android:layout_alignBottom="@id/title_anagram"
         android:layout_marginLeft="18dp"
-        android:layout_toRightOf="@id/anagram_middle"
+        android:layout_toRightOf="@id/title_anagram"
         android:text="@string/title_bar_right"
         android:textSize="25sp" />
 
     <TextView
-        android:id="@+id/anagram_left"
+        android:id="@+id/title_bar_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginRight="14dp"
         android:layout_marginTop="72dp"
-        android:layout_toLeftOf="@id/anagram_middle"
+        android:layout_toLeftOf="@id/title_anagram"
         android:text="@string/title_bar_left"
         android:textSize="25sp" />
 
@@ -46,7 +45,7 @@
         android:id="@+id/splash_screen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/anagram_middle"
+        android:layout_below="@id/title_anagram"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:src="@mipmap/splash" />
@@ -59,7 +58,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:adjustViewBounds="true"
-        android:maxWidth="60dp"
+        android:maxWidth="40dp"
         android:scaleType="fitCenter"
         android:src="@mipmap/setting" />
 

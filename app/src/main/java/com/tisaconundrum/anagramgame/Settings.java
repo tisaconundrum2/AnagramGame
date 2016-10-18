@@ -11,7 +11,8 @@ import android.widget.TextView;
 /**
  * Created by tisaconundrum on 10/17/2016.
  */
-public class Settings extends AppCompatActivity{
+
+public class Settings extends AppCompatActivity {
 
     private RelativeLayout settingsLayout;
     private TextView titleLeft;
@@ -37,9 +38,9 @@ public class Settings extends AppCompatActivity{
     }
 
     private void title() {
-        titleLeft = (TextView) findViewById(R.id.anagram_left);
-        titleMiddle = (TextView) findViewById(R.id.anagram_middle);
-        titleRight = (TextView) findViewById(R.id.anagram_right);
+        titleLeft = (TextView) findViewById(R.id.title_bar_left);
+        titleMiddle = (TextView) findViewById(R.id.title_settings);
+        titleRight = (TextView) findViewById(R.id.title_bar_right);
 
         compileAnimation = AnimationUtils.loadAnimation(Settings.this, R.anim.back_anim_for_title_left);
         compileAnimation.setDuration(GameSettings.ANIMATION_HIDE_TITLE_DURATION);

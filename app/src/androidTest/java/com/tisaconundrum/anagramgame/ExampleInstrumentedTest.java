@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.timbuchalka.anagramgame", appContext.getPackageName());
+        assertEquals("com.tisaconundrum.anagramgame", appContext.getPackageName());
     }
 }

@@ -8,20 +8,20 @@
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
-    tools:context="com.tisaconundrum.anagramgame.Settings">
+    >
 
     <TextView
         android:id="@+id/title_settings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/anagram_left"
-        android:layout_alignBottom="@id/anagram_left"
+        android:layout_alignBaseline="@+id/title_bar_left"
+        android:layout_alignBottom="@id/title_bar_left"
         android:layout_centerHorizontal="true"
         android:text="@string/title_settings"
         android:textSize="25sp" />
 
     <TextView
-        android:id="@+id/anagram_right"
+        android:id="@+id/title_bar_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@id/title_settings"
@@ -32,7 +32,7 @@
         android:textSize="25sp" />
 
     <TextView
-        android:id="@+id/anagram_left"
+        android:id="@+id/title_bar_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
