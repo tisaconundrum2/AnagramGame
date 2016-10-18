@@ -23,5 +23,11 @@
         android:scaleType="fitCenter"
         android:src="@mipmap/pause_button" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/alph/_A_"
+        />
+
 
 </RelativeLayout>
