@@ -67,5 +67,16 @@
             android:src="@mipmap/alpha_a" />
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/right_arrow"
+        android:layout_width="66dp"
+        android:layout_height="80dp"
+        android:src="@mipmap/right_arrow"
+
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/pause_button"
+        android:layout_alignStart="@+id/pause_button" />
 
 </RelativeLayout>
