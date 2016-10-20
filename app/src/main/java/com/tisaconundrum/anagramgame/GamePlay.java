@@ -3,6 +3,7 @@ package com.tisaconundrum.anagramgame;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 /**
@@ -29,6 +30,7 @@ public class GamePlay extends AppCompatActivity{
     }
 
     private void addTiles() {
-
+        ImageView img = new ImageView(this);
+        img.setImageResource(R.drawable.alpha_a);
     }
 }
