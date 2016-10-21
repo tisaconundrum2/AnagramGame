@@ -12,6 +12,33 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import static com.tisaconundrum.anagramgame.R.mipmap.alpha_a;
+import static com.tisaconundrum.anagramgame.R.mipmap.alpha_b;
+import static com.tisaconundrum.anagramgame.R.mipmap.alpha_c;
+import static com.tisaconundrum.anagramgame.R.mipmap.alpha_d;
+import static com.tisaconundrum.anagramgame.R.mipmap.alpha_e;
+import static com.tisaconundrum.anagramgame.R.mipmap.alpha_f;
+import static com.tisaconundrum.anagramgame.R.mipmap.alpha_g;
+import static com.tisaconundrum.anagramgame.R.mipmap.alpha_h;
+import static com.tisaconundrum.anagramgame.R.mipmap.alpha_i;
+import static com.tisaconundrum.anagramgame.R.mipmap.alpha_j;
+import static com.tisaconundrum.anagramgame.R.mipmap.alpha_k;
+import static com.tisaconundrum.anagramgame.R.mipmap.alpha_l;
+import static com.tisaconundrum.anagramgame.R.mipmap.alpha_m;
+import static com.tisaconundrum.anagramgame.R.mipmap.alpha_n;
+import static com.tisaconundrum.anagramgame.R.mipmap.alpha_o;
+import static com.tisaconundrum.anagramgame.R.mipmap.alpha_p;
+import static com.tisaconundrum.anagramgame.R.mipmap.alpha_q;
+import static com.tisaconundrum.anagramgame.R.mipmap.alpha_r;
+import static com.tisaconundrum.anagramgame.R.mipmap.alpha_s;
+import static com.tisaconundrum.anagramgame.R.mipmap.alpha_t;
+import static com.tisaconundrum.anagramgame.R.mipmap.alpha_u;
+import static com.tisaconundrum.anagramgame.R.mipmap.alpha_v;
+import static com.tisaconundrum.anagramgame.R.mipmap.alpha_w;
+import static com.tisaconundrum.anagramgame.R.mipmap.alpha_x;
+import static com.tisaconundrum.anagramgame.R.mipmap.alpha_y;
+import static com.tisaconundrum.anagramgame.R.mipmap.alpha_z;
+
 /**
  * Created by tisaconundrum on 10/17/2016.
  */
@@ -26,19 +53,10 @@ public class GamePlay extends AppCompatActivity {
     private TextView textViewUsernameTitle;
     private String username;
     private RelativeLayout gamePlayLayout;
-    private Button alpha_a, alpha_b, alpha_c, alpha_d, alpha_e, alpha_f, alpha_g, alpha_h, alpha_i, alpha_j, alpha_k, alpha_l, alpha_m, alpha_n, alpha_o, alpha_p, alpha_q, alpha_r, alpha_s, alpha_t, alpha_u, alpha_v, alpha_w, alpha_x, alpha_y, alpha_z;
-    private int[] tile = {R.mipmap.alpha_a, R.mipmap.alpha_b, R.mipmap.alpha_c, R.mipmap.alpha_d, R.mipmap.alpha_e, R.mipmap.alpha_f, R.mipmap.alpha_g, R.mipmap.alpha_h, R.mipmap.alpha_i, R.mipmap.alpha_j, R.mipmap.alpha_k, R.mipmap.alpha_l, R.mipmap.alpha_m, R.mipmap.alpha_n, R.mipmap.alpha_o, R.mipmap.alpha_p, R.mipmap.alpha_q, R.mipmap.alpha_r, R.mipmap.alpha_s, R.mipmap.alpha_t, R.mipmap.alpha_u, R.mipmap.alpha_v, R.mipmap.alpha_w, R.mipmap.alpha_x, R.mipmap.alpha_y, R.mipmap.alpha_z};
+    private int[] buttons = {alpha_a, alpha_b, alpha_c, alpha_d, alpha_e, alpha_f, alpha_g, alpha_h, alpha_i, alpha_j, alpha_k, alpha_l, alpha_m, alpha_n, alpha_o, alpha_p, alpha_q, alpha_r, alpha_s, alpha_t, alpha_u, alpha_v, alpha_w, alpha_x, alpha_y, alpha_z};
+    private int[] tile = {alpha_a, alpha_b, alpha_c, alpha_d, alpha_e, alpha_f, alpha_g, alpha_h, alpha_i, alpha_j, alpha_k, alpha_l, alpha_m, alpha_n, alpha_o, alpha_p, alpha_q, alpha_r, alpha_s, alpha_t, alpha_u, alpha_v, alpha_w, alpha_x, alpha_y, alpha_z};
     private String[] alphaStrings = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
-    private Button[] buttons;
-    private ImageView buttonSubmit = (ImageView) findViewById(R.id.submit_button);
-    private TextView textViewNumTokens = (TextView)findViewById(R.id.words_matched);
-    private ImageView tile1 = (ImageView) findViewById(R.id.tile1);                                     // Let's
-    private ImageView tile2 = (ImageView) findViewById(R.id.tile2);                                     // be
-    private ImageView tile3 = (ImageView) findViewById(R.id.tile3);                                     // completely
-    private ImageView tile4 = (ImageView) findViewById(R.id.tile4);                                     // honest
-    private ImageView tile5 = (ImageView) findViewById(R.id.tile5);                                     // this
-    private ImageView tile6 = (ImageView) findViewById(R.id.tile6);                                     // isn't
-    private ImageView tile7 = (ImageView) findViewById(R.id.tile7);                                     // optimal
+
 
 
 
@@ -62,12 +80,13 @@ public class GamePlay extends AppCompatActivity {
         for (int i = 0; i < alphaStrings.length; i++) {                                                 // loop through 26 letters
             String buttonID = "alpha_" + alphaStrings[i];                                               // buttonID example "alpha_b"
             int resID = getResources().getIdentifier(buttonID, "id", getPackageName());                 // finds the tile that is available for interaction on the board
-            buttons[i] = ((Button) findViewById(resID));                                                // button = (Button) findViewById(R.id.alpha_b)
+            ImageView alpha_b = (ImageView) findViewById(R.mipmap.alpha_a)
             buttons[i].setOnClickListener((View.OnClickListener) this);                                 // listen for any Clicks
         }
     }
 
     private void getInputFile(String file) {
+        TextView textViewNumTokens = (TextView)findViewById(R.id.words_matched);
         try {                                                                                           // try the file and make sure it exists
             InputStreamReader inputs = new InputStreamReader(getAssets().open(file));                   // input the anagrams.txt file that will be in the src/main/assets directory
             BufferedReader br = new BufferedReader(inputs);                                             // Read the inputs in
@@ -84,6 +103,13 @@ public class GamePlay extends AppCompatActivity {
     }
 
     private void getTilePlacement(String string){
+        ImageView tile1 = (ImageView) findViewById(R.id.tile1);                                     // Let's
+        ImageView tile2 = (ImageView) findViewById(R.id.tile2);                                     // be
+        ImageView tile3 = (ImageView) findViewById(R.id.tile3);                                     // completely
+        ImageView tile4 = (ImageView) findViewById(R.id.tile4);                                     // honest
+        ImageView tile5 = (ImageView) findViewById(R.id.tile5);                                     // this
+        ImageView tile6 = (ImageView) findViewById(R.id.tile6);                                     // isn't
+        ImageView tile7 = (ImageView) findViewById(R.id.tile7);                                     // optimal
         ImageView[] tiles = {tile1, tile2, tile3, tile4, tile5, tile6, tile7};                          // put all these variables in a list. XD I can't believe this logic works TBH >_<
         int i = 1;
         for (char ch: string.toCharArray()){                                                            // Parse the string, get each individual letter
@@ -211,6 +237,8 @@ public class GamePlay extends AppCompatActivity {
     }
 
     private void submit() {
+        ImageView buttonSubmit = (ImageView) findViewById(R.id.submit_button);
+        final TextView textViewNumTokens = (TextView)findViewById(R.id.words_matched);
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View sub) {                                                             // click to submit the typed word
                 TextView input = (TextView) findViewById(R.id.tileOutput);                              // after the click pull the string from the tileOutput box
