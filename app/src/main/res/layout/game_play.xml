@@ -42,23 +42,50 @@
         android:orientation="horizontal">
 
 
-        <TextView
-            android:id="@+id/tileOutput"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Tap on tiles to start"
-            android:textAlignment="center"
-            android:textSize="40dp" />
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/cycle_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="100dp"
+        android:adjustViewBounds="true"
+        android:maxWidth="60dp"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/cycle_button" />
+
+    <ImageView
+        android:id="@+id/pause_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:adjustViewBounds="true"
+        android:maxWidth="60dp"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/pause_button" />
+
+    <TextView
+        android:id="@+id/words_matched"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_weight="1"
+        android:text="Words matched 0/0"
+        android:textAlignment="center"
+
+        android:textSize="30dp" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/right_arrow"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="116dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
         android:orientation="horizontal">
 
         <ImageView
@@ -125,60 +152,26 @@
             android:src="@mipmap/alpha_place_holder" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/cycle_button"
+    <TextView
+        android:id="@+id/tileOutput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/right_arrow"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="37dp"
-        android:adjustViewBounds="true"
-        android:maxWidth="60dp"
-        android:scaleType="fitCenter"
-        android:src="@mipmap/cycle_button" />
+        android:layout_above="@+id/linearLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="24dp"
+        android:layout_weight="1"
+        android:text="Tap on tiles to start"
+        android:textAlignment="center"
+        android:textSize="40dp" />
 
     <ImageView
         android:id="@+id/submit_button"
-        android:layout_width="400px"
-        android:layout_height="wrap_content"
-        android:scaleType="fitCenter"
-
-        app:srcCompat="@mipmap/submit"
-        android:layout_alignTop="@+id/cycle_button"
-        android:layout_centerHorizontal="true"
-        />
-
-    <ImageView
-        android:id="@+id/pause_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:maxWidth="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="350dp"
         android:scaleType="fitCenter"
-        android:src="@mipmap/pause_button"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/pause_button"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="29dp">
-
-        <TextView
-            android:text="Words matched 0/0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAlignment="center"
-            android:textSize="30dp"
-
-            android:id="@+id/words_matched" />
-    </TableRow>
-
+        app:srcCompat="@mipmap/submit" />
 
 </RelativeLayout>
