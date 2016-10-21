@@ -80,7 +80,7 @@ public class GamePlay extends AppCompatActivity {
         for (int i = 0; i < alphaStrings.length; i++) {                                                 // loop through 26 letters
             String buttonID = "alpha_" + alphaStrings[i];                                               // buttonID example "alpha_b"
             int resID = getResources().getIdentifier(buttonID, "id", getPackageName());                 // finds the tile that is available for interaction on the board
-            ImageView alpha_b = (ImageView) findViewById(R.mipmap.alpha_a)
+            ImageView alpha_b = (ImageView) findViewById(R.mipmap.alpha_a);
             buttons[i].setOnClickListener((View.OnClickListener) this);                                 // listen for any Clicks
         }
     }
@@ -225,7 +225,8 @@ public class GamePlay extends AppCompatActivity {
     }
 
     private void resetTiles() {
-                                                                                                        // TODO, make it such that tiles are clickable again
+                                                                                                        // TODO Actually I think we can delete this and the Cycle button,
+                                                                                                        // Just make it such that when the submit button is pressed words are reset by default
     }
 
     private void nextWord() {

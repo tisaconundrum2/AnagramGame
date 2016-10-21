@@ -45,18 +45,6 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/cycle_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="100dp"
-        android:adjustViewBounds="true"
-        android:maxWidth="60dp"
-        android:scaleType="fitCenter"
-        android:src="@mipmap/cycle_button" />
-
-    <ImageView
         android:id="@+id/pause_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
