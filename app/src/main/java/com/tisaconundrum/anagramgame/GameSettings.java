@@ -28,4 +28,7 @@ public class GameSettings {
     public static final String HIGH_SCORE   = "HighScore";
     public static final String PLAY_MUSIC = "PlayMusic";
 
+    public static final int SHAKE_DURATION = 500;
+
+
 }

@@ -6,6 +6,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -30,6 +32,7 @@ public class GamePlay extends Activity implements View.OnClickListener {
     boolean tile2_flag = false;
     boolean tile3_flag = false;
     boolean tile4_flag = false;
+    private boolean shake_flag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,9 +93,7 @@ public class GamePlay extends Activity implements View.OnClickListener {
         }                                                                                               //
     }
 
-
     @Override
-    // Override the class that uses onClick
     public void onClick(View arg0) {                                                                    // start of onClick function
         TextView disp = (TextView) findViewById(R.id.tileOutput);                                       // get tileOutput so we can write to it
         Editable str = (Editable) disp.getText();                                                       // str will contain the text that is in it
@@ -101,7 +102,7 @@ public class GamePlay extends Activity implements View.OnClickListener {
                 if (!tile1_flag) {                                                                      // and as long as tile1_flag is false
                     str = str.append('a');                                                              // add 'a' to the str variable
                     disp.setText(str);                                                                  // set the text so the user can see it
-                    tile1.setColorFilter(Color.argb(150,200,200,200));
+                    tile1.setColorFilter(Color.argb(150, 200, 200, 200));
                     tile1_flag = true;                                                                  // set the flag to true, so the user doesn't try and click on it again
                     break;                                                                              // break out of this case
                 } else {                                                                                // TODO we need to grey out the tile, so the user knows they clicked on that letter
@@ -111,7 +112,7 @@ public class GamePlay extends Activity implements View.OnClickListener {
                 if (!tile2_flag) {
                     str = str.append('p');
                     disp.setText(str);
-                    tile2.setColorFilter(Color.argb(150,200,200,200));
+                    tile2.setColorFilter(Color.argb(150, 200, 200, 200));
                     tile2_flag = true;
                     break;
                 } else {
@@ -121,7 +122,7 @@ public class GamePlay extends Activity implements View.OnClickListener {
                 if (!tile3_flag) {
                     str = str.append('p');
                     disp.setText(str);
-                    tile3.setColorFilter(Color.argb(150,200,200,200));
+                    tile3.setColorFilter(Color.argb(150, 200, 200, 200));
                     tile3_flag = true;
                     break;
                 } else {
@@ -131,7 +132,7 @@ public class GamePlay extends Activity implements View.OnClickListener {
                 if (!tile4_flag) {
                     str = str.append('s');
                     disp.setText(str);
-                    tile4.setColorFilter(Color.argb(150,200,200,200));
+                    tile4.setColorFilter(Color.argb(150, 200, 200, 200));
                     tile4_flag = true;
                     break;
                 } else {
@@ -147,6 +148,7 @@ public class GamePlay extends Activity implements View.OnClickListener {
                             wordsfound += 1;                                                            // increment our wordsfound
                             textViewNumTokens.setText("Words matched " + wordsfound + "/" + totalwords);// update textViewNumTokens, and let the user know that they found a correct word
                             words[i] = null;                                                            // since we found a correct word, delete it from the list
+                            shake_flag = true;
                         }
                         tile1_flag = false;                                                             // set everything back to false
                         tile2_flag = false;                                                             // so that the user can use the buttons again
@@ -164,9 +166,25 @@ public class GamePlay extends Activity implements View.OnClickListener {
                         }
                     }
                 }
+                if (!shake_flag) {
+                    shake();                                                                           // if they get it right, don't shake, otherwise shake
+                }
+                shake_flag = false;
                 input.setSelectAllOnFocus(true);
                 break;
         }
 
     }
+
+    private void shake() {
+        Animation shake = AnimationUtils.loadAnimation(this, R.anim.shake);
+        shake.setDuration(GameSettings.SHAKE_DURATION);
+        gamePlayLayout = (RelativeLayout) findViewById(R.id.game_play_layout);
+        gamePlayLayout.startAnimation(shake);
+    }
+
+    @Override
+    public void onBackPressed() {
+    }
+
 }

@@ -71,6 +71,7 @@ public class Settings extends AppCompatActivity {
         }
 
     }
+
     private void musicOnOff() {
         musicButton = (ImageView) findViewById(R.id.music_icon);
         compileAnimation = AnimationUtils.loadAnimation(Settings.this, R.anim.anim_for_no_button);
