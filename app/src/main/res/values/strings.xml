@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AnagramGame</string>
+    <string name="app_name">Anagrams</string>
     <string name="action_settings">Settings</string>
     <string name="title_bar_left">|</string>
     <string name="title_anagram"> ANAGRAMS </string>
