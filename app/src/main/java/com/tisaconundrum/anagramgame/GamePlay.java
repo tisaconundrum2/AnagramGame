@@ -159,7 +159,7 @@ public class GamePlay extends Activity implements View.OnClickListener {
                         disp.setText("");                                                              // also clear the string text
 
                         if (wordsfound == totalwords) {                                                // TODO: have the user forwarded to the Game_over layout and display score, utilize intent here
-                            Intent intent = new Intent(getApplicationContext(),GameOver.class);        // Set the Intent, and switch to GameOver.java
+                            Intent intent = new Intent(getApplication(), GameOver.class);              // Set the Intent, and switch to GameOver.java
                             startActivity(intent);                                                     // Exit out of MainActivity and to GameActivity
                         }
                     }
