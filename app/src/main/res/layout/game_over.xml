@@ -86,10 +86,11 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/total_high_score"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
+        android:adjustViewBounds="true"
+        android:maxWidth="60dp"
+        android:scaleType="fitCenter"
         android:src="@mipmap/home_button"
-        />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

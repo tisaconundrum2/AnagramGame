@@ -1,10 +1,13 @@
 package com.tisaconundrum.anagramgame;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -18,6 +21,7 @@ public class Credits extends AppCompatActivity{
     private TextView titleMiddle;
     private TextView titleRight;
     private Animation compileAnimation;
+    private ImageView homebutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -33,6 +37,33 @@ public class Credits extends AppCompatActivity{
             getSupportActionBar().hide();
         }
         titleAnimate();
+        homebutton();
+    }
+
+    private void homebutton() {
+        {
+            homebutton = (ImageView) findViewById(R.id.home_button);
+            homebutton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                Intent settingsIntent = new Intent(Credits.this, MainMenu.class);
+                                settingsIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION); //this checks that all animations are done before moving foward
+                                startActivity(settingsIntent);
+                            } catch (Exception e){
+                                System.err.println(e.getMessage());
+                            }
+                        }
+                    }, GameSettings.START_NEW_ACTIVITY_DURATION);
+
+                }
+            });
+        }
+
     }
 
     private void titleAnimate(){
