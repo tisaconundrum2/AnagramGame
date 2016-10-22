@@ -44,6 +44,7 @@
 
     </LinearLayout>
 
+
     <ImageView
         android:id="@+id/pause_button"
         android:layout_width="wrap_content"
@@ -65,7 +66,7 @@
         android:text="Words matched 0/0"
         android:textAlignment="center"
 
-        android:textSize="30dp" />
+        android:textSize="20dp" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -140,26 +141,38 @@
             android:src="@mipmap/alpha_place_holder" />
     </LinearLayout>
 
-    <TextView
+    <EditText
         android:id="@+id/tileOutput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/linearLayout"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="24dp"
+        android:layout_weight="1"
+        android:text=""
+        android:textAlignment="center"
+        android:textSize="40dp" />
+
+    <TextView
+        android:id="@+id/instruct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linearLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100dp"
         android:layout_weight="1"
         android:text="Tap on tiles to start"
         android:textAlignment="center"
-        android:textSize="40dp" />
+        android:textSize="30dp" />
 
     <ImageView
         android:id="@+id/submit_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="350dp"
+        android:layout_marginBottom="150dp"
         android:scaleType="fitCenter"
-        app:srcCompat="@mipmap/submit" />
+        android:src="@mipmap/submit"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
