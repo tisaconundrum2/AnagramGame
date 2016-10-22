@@ -11,7 +11,7 @@
     tools:context="com.tisaconundrum.anagramgame.Settings">
 
     <TextView
-        android:id="@+id/title_credits"
+        android:id="@+id/title_game_over"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/anagram_left"
@@ -24,10 +24,10 @@
         android:id="@+id/anagram_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/title_credits"
-        android:layout_alignBottom="@id/title_credits"
+        android:layout_alignBaseline="@id/title_game_over"
+        android:layout_alignBottom="@id/title_game_over"
         android:layout_marginLeft="18dp"
-        android:layout_toRightOf="@id/title_credits"
+        android:layout_toRightOf="@id/title_game_over"
         android:text="@string/title_bar_right"
         android:textSize="25sp" />
 
@@ -38,7 +38,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginRight="14dp"
         android:layout_marginTop="72dp"
-        android:layout_toLeftOf="@id/title_credits"
+        android:layout_toLeftOf="@id/title_game_over"
         android:text="@string/title_bar_left"
         android:textSize="25sp" />
 
@@ -47,7 +47,7 @@
         android:id="@+id/score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/title_credits"
+        android:layout_below="@+id/title_game_over"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:text="@string/score"

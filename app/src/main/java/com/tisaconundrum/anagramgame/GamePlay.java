@@ -1,6 +1,8 @@
 package com.tisaconundrum.anagramgame;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.View;
@@ -99,7 +101,7 @@ public class GamePlay extends Activity implements View.OnClickListener {
                 if (!tile1_flag) {                                                                      // and as long as tile1_flag is false
                     str = str.append('a');                                                              // add 'a' to the str variable
                     disp.setText(str);                                                                  // set the text so the user can see it
-                    tile1.setColorFilter(150, );
+                    tile1.setColorFilter(Color.argb(150,200,200,200));
                     tile1_flag = true;                                                                  // set the flag to true, so the user doesn't try and click on it again
                     break;                                                                              // break out of this case
                 } else {                                                                                // TODO we need to grey out the tile, so the user knows they clicked on that letter
@@ -109,6 +111,7 @@ public class GamePlay extends Activity implements View.OnClickListener {
                 if (!tile2_flag) {
                     str = str.append('p');
                     disp.setText(str);
+                    tile2.setColorFilter(Color.argb(150,200,200,200));
                     tile2_flag = true;
                     break;
                 } else {
@@ -118,6 +121,7 @@ public class GamePlay extends Activity implements View.OnClickListener {
                 if (!tile3_flag) {
                     str = str.append('p');
                     disp.setText(str);
+                    tile3.setColorFilter(Color.argb(150,200,200,200));
                     tile3_flag = true;
                     break;
                 } else {
@@ -127,6 +131,7 @@ public class GamePlay extends Activity implements View.OnClickListener {
                 if (!tile4_flag) {
                     str = str.append('s');
                     disp.setText(str);
+                    tile4.setColorFilter(Color.argb(150,200,200,200));
                     tile4_flag = true;
                     break;
                 } else {
@@ -147,13 +152,15 @@ public class GamePlay extends Activity implements View.OnClickListener {
                         tile2_flag = false;                                                             // so that the user can use the buttons again
                         tile3_flag = false;
                         tile4_flag = false;
+                        tile1.setColorFilter(null);
+                        tile2.setColorFilter(null);
+                        tile3.setColorFilter(null);
+                        tile4.setColorFilter(null);
                         disp.setText("");                                                              // also clear the string text
 
-                        if (wordsfound == totalwords) {                                                 // TODO: have the user forwarded to the Game_over layout and display score, utilize intent here
-                            //textViewUsernameTitle.setText("Great Job " + helpers.toTitleCase(username) + "!");
-                            //textViewWordLabel.setText("");
-                            //textViewAnagramWord.setText("You're the bestest!");
-                            //input.setText("");
+                        if (wordsfound == totalwords) {                                                // TODO: have the user forwarded to the Game_over layout and display score, utilize intent here
+                            Intent intent = new Intent(getApplicationContext(),GameOver.class);        // Set the Intent, and switch to GameOver.java
+                            startActivity(intent);                                                     // Exit out of MainActivity and to GameActivity
                         }
                     }
                 }
