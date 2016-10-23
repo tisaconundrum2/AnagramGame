@@ -16,11 +16,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-
-/**
- * Created by tisaconundrum on 10/21/2016.
- */
-
 public class GamePlay4 extends Activity implements View.OnClickListener {
     private RelativeLayout gamePlayLayout;
     private String DATA_FILE = "anagrams4.txt";
@@ -28,11 +23,8 @@ public class GamePlay4 extends Activity implements View.OnClickListener {
     private String[] words;
     private int wordsfound = 0;
     private int totalwords = 0;
-    boolean tile1_flag = false;
-    boolean tile2_flag = false;
-    boolean tile3_flag = false;
-    boolean tile4_flag = false;
-    private boolean shake_flag = false;
+
+    boolean shake_flag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,10 +48,9 @@ public class GamePlay4 extends Activity implements View.OnClickListener {
         tile6 = (ImageView) findViewById(R.id.tile6);                                                   // getting tiles int place
         tile7 = (ImageView) findViewById(R.id.tile7);                                                   // adding the actual tile images to the board
         submit_button = (ImageView) findViewById(R.id.submit_button);
-        tile1.setImageResource(R.mipmap.alpha_a);                                                       // adding the actual tile images to the board
-        tile2.setImageResource(R.mipmap.alpha_p);                                                       // adding the actual tile images to the board
-        tile3.setImageResource(R.mipmap.alpha_p);                                                       // adding the actual tile images to the board
-        tile4.setImageResource(R.mipmap.alpha_s);                                                       // adding the actual tile images to the board
+        falsifyLetters();
+        submit_button.setTag(new ImageProperties(true, "submit"));
+
         try {
             tile1.setOnClickListener(this);                                                             // Listen out for any clicks
             tile2.setOnClickListener(this);                                                             // Listen out for any clicks
@@ -68,7 +59,7 @@ public class GamePlay4 extends Activity implements View.OnClickListener {
             tile5.setOnClickListener(this);                                                             // Listen out for any clicks
             tile6.setOnClickListener(this);                                                             // Listen out for any clicks
             tile7.setOnClickListener(this);                                                             // Listen out for any clicks
-            submit_button.setOnClickListener(this);                                                             // Listen out for any clicks
+            submit_button.setOnClickListener(this);                                                     // Listen out for any clicks
         } catch (Exception ignored) {                                                                   // ignore exceotions that may be thrown
 
         }
@@ -78,7 +69,7 @@ public class GamePlay4 extends Activity implements View.OnClickListener {
     private void getInputFile(String file) {
         TextView textViewNumTokens = (TextView) findViewById(R.id.words_matched);
         try {                                                                                           // try the file and make sure it exists
-            InputStreamReader inputs = new InputStreamReader(getAssets().open(file));                   // input the anagrams.txt file that will be in the src/main/assets directory
+            InputStreamReader inputs = new InputStreamReader(getAssets().open(file));                   // input the anagrams1.txt file that will be in the src/main/assets directory
             BufferedReader br = new BufferedReader(inputs);                                             // Read the inputs in
             words = br.readLine().split(" ");                                                           // start counting how many words there. We can tell this by the spaces between each word
             //textViewAnagramWord.setText(words[0]);                                                    // TODO, this sets the Anagram text, what we need to do is call a function to populate the tiles when this is ran (Line 84)
@@ -94,86 +85,74 @@ public class GamePlay4 extends Activity implements View.OnClickListener {
     }
 
     @Override
-    public void onClick(View arg0) {                                                                    // start of onClick function
-        TextView disp = (TextView) findViewById(R.id.tileOutput);                                       // get tileOutput so we can write to it
-        Editable str = (Editable) disp.getText();                                                       // str will contain the text that is in it
-        switch (arg0.getId()) {                                                                         // start of the switch
-            case R.id.tile1:                                                                            // if our first case is tile1
-                if (!tile1_flag) {                                                                      // and as long as tile1_flag is false
-                    str = str.append('a');                                                              // add 'a' to the str variable
-                    disp.setText(str);                                                                  // set the text so the user can see it
-                    tile1.setColorFilter(Color.argb(150, 200, 200, 200));
-                    tile1_flag = true;                                                                  // set the flag to true, so the user doesn't try and click on it again
-                    break;                                                                              // break out of this case
-                } else {                                                                                // TODO we need to grey out the tile, so the user knows they clicked on that letter
-                    break;                                                                              // TODO two ways to do that, either replace the image OR generate it procedurally
-                }
-            case R.id.tile2:
-                if (!tile2_flag) {
-                    str = str.append('p');
-                    disp.setText(str);
-                    tile2.setColorFilter(Color.argb(150, 200, 200, 200));
-                    tile2_flag = true;
-                    break;
-                } else {
-                    break;
-                }
-            case R.id.tile3:
-                if (!tile3_flag) {
-                    str = str.append('p');
-                    disp.setText(str);
-                    tile3.setColorFilter(Color.argb(150, 200, 200, 200));
-                    tile3_flag = true;
-                    break;
-                } else {
-                    break;
-                }
-            case R.id.tile4:
-                if (!tile4_flag) {
-                    str = str.append('s');
-                    disp.setText(str);
-                    tile4.setColorFilter(Color.argb(150, 200, 200, 200));
-                    tile4_flag = true;
-                    break;
-                } else {
-                    break;
-                }
-            case R.id.submit_button:
-                final TextView textViewNumTokens = (TextView) findViewById(R.id.words_matched);         // set the variable to hold the layout's location
-                TextView input = (TextView) findViewById(R.id.tileOutput);                              // after the click pull the string from the tileOutput box
-                String submission = input.getText().toString();                                         // convert the string, probably redundant, but gotta make sure
-                for (int i = 0; i < words.length; i++) {                                                // going through each word that is in our list
-                    if (words[i] != null) {                                                             // and as long as the list is not empty
-                        if (words[i].equals(submission)) {                                              // check to see if the string is the same as the string that was typed
-                            wordsfound += 1;                                                            // increment our wordsfound
-                            textViewNumTokens.setText("Words matched " + wordsfound + "/" + totalwords);// update textViewNumTokens, and let the user know that they found a correct word
-                            words[i] = null;                                                            // since we found a correct word, delete it from the list
-                            shake_flag = true;
-                        }
-                        tile1_flag = false;                                                             // set everything back to false
-                        tile2_flag = false;                                                             // so that the user can use the buttons again
-                        tile3_flag = false;
-                        tile4_flag = false;
-                        tile1.setColorFilter(null);
-                        tile2.setColorFilter(null);
-                        tile3.setColorFilter(null);
-                        tile4.setColorFilter(null);
-                        disp.setText("");                                                              // also clear the string text
+    public void onClick(View arg0) {
+        TextView disp = (TextView) findViewById(R.id.tileOutput);
+        Editable str = (Editable) disp.getText();
 
-                        if (wordsfound == totalwords) {                                                // TODO: have the user forwarded to the Game_over layout and display score, utilize intent here
-                            Intent intent = new Intent(getApplication(), GameOver.class);              // Set the Intent, and switch to GameOver.java
-                            startActivity(intent);                                                     // Exit out of MainActivity and to GameActivity
-                        }
+
+        ImageView imageView = (ImageView) arg0;
+        ImageProperties imageProperties = (ImageProperties) arg0.getTag();
+        if (!imageProperties.titleFlag) {                                                           // if the flag
+            str = str.append(imageProperties.appendLetter);                                         //
+            disp.setText(str);                                                                      //
+            imageView.setColorFilter(Color.argb(150, 200, 200, 200));                               //
+            imageProperties.setFlag(true);                                                          //
+        }
+        if (imageProperties.appendLetter == "submit") {
+            final TextView textViewNumTokens = (TextView) findViewById(R.id.words_matched);         // set the variable to hold the layout's location
+            TextView input = (TextView) findViewById(R.id.tileOutput);                              // after the click pull the string from the tileOutput box
+            String submission = input.getText().toString();                                         // convert the string, probably redundant, but gotta make sure
+            for (int i = 0; i < words.length; i++) {                                                // going through each word that is in our list
+                if (words[i] != null) {                                                             // and as long as the list is not empty
+                    if (words[i].equals(submission)) {                                              // check to see if the string is the same as the string that was typed
+                        wordsfound += 1;                                                            // increment our wordsfound
+                        textViewNumTokens.setText("Words matched " + wordsfound + "/" + totalwords);// update textViewNumTokens, and let the user know that they found a correct word
+                        words[i] = null;                                                            // since we found a correct word, delete it from the list
+                        shake_flag = true;
+                    }
+                    falsifyLetters();
+                    nullifyLetters();
+                    disp.setText("");                                                              // also clear the string text
+
+                    if (wordsfound == totalwords) {                                                // TODO: have the user forwarded to the Game_over layout and display score, utilize intent here
+                        Intent intent = new Intent(getApplication(), GameOver.class);              // Set the Intent, and switch to GameOver.java
+                        startActivity(intent);                                                     // Exit out of MainActivity and to GameActivity
                     }
                 }
-                if (!shake_flag) {
-                    shake();                                                                           // if they get it right, don't shake, otherwise shake
-                }
-                shake_flag = false;
-                input.setSelectAllOnFocus(true);
-                break;
+            }
+            if (!shake_flag) {
+                shake();                                                                           // if they get it right, don't shake, otherwise shake
+            }
+            shake_flag = false;                                                                    // reset the flag, so we shake again
+            input.setSelectAllOnFocus(true);
         }
+    }
 
+    public void falsifyLetters() {
+        tile1.setImageResource(R.mipmap.alpha_a);                                                       // adding the actual tile images to the board
+        tile2.setImageResource(R.mipmap.alpha_r);                                                       // adding the actual tile images to the board
+        tile3.setImageResource(R.mipmap.alpha_i);                                                       // adding the actual tile images to the board
+        tile4.setImageResource(R.mipmap.alpha_d);                                                       // adding the actual tile images to the board
+        tile5.setImageResource(R.mipmap.alpha_e);                                                       // adding the actual tile images to the board
+        tile6.setImageResource(R.mipmap.alpha_s);                                                       // adding the actual tile images to the board
+        tile7.setImageResource(R.mipmap.alpha_t);                                                       // adding the actual tile images to the board
+        tile1.setTag(new ImageProperties(false, "a"));
+        tile2.setTag(new ImageProperties(false, "r"));
+        tile3.setTag(new ImageProperties(false, "i"));
+        tile4.setTag(new ImageProperties(false, "d"));
+        tile5.setTag(new ImageProperties(false, "e"));
+        tile6.setTag(new ImageProperties(false, "s"));
+        tile7.setTag(new ImageProperties(false, "t"));
+    }
+
+    public void nullifyLetters() {
+        tile1.setColorFilter(null);
+        tile2.setColorFilter(null);
+        tile3.setColorFilter(null);
+        tile4.setColorFilter(null);
+        tile5.setColorFilter(null);
+        tile6.setColorFilter(null);
+        tile7.setColorFilter(null);
     }
 
     private void shake() {
@@ -183,8 +162,21 @@ public class GamePlay4 extends Activity implements View.OnClickListener {
         gamePlayLayout.startAnimation(shake);
     }
 
+    private void onRightArrowPressed() {
+        //TODO: utilize intent to go forward to next level
+    }
+
+    private void onLeftArrowPressed() {
+        // TODO: make left arrow visible
+        // TODO: utilize intent to go to previous level
+    }
+
+    private void onPaused() {
+        // TODO Utilize an intent to pause the game? I don't think i will implement this
+        // as it would require memory of words matched. Right now implementing it would cause loss of this
+    }
+
     @Override
     public void onBackPressed() {
     }
-
 }

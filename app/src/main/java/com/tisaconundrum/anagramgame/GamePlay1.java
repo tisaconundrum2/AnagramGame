@@ -16,25 +16,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-class ImageProperties {
-    public boolean titleFlag;
-    public String appendLetter;
-
-    ImageProperties(boolean titleFlag, String appendLetter) {
-        this.titleFlag = titleFlag;
-        this.appendLetter = appendLetter;
-    }
-
-    public void setFlag(boolean titleFlag) {
-        this.titleFlag = titleFlag;
-    }
-
-
-}
-
 public class GamePlay1 extends Activity implements View.OnClickListener {
     private RelativeLayout gamePlayLayout;
-    private String DATA_FILE = "anagrams2.txt";
+    private String DATA_FILE = "anagrams1.txt";
     private ImageView tile1, tile2, tile3, tile4, tile5, tile6, tile7, submit_button;
     private String[] words;
     private int wordsfound = 0;
@@ -64,11 +48,6 @@ public class GamePlay1 extends Activity implements View.OnClickListener {
         tile6 = (ImageView) findViewById(R.id.tile6);                                                   // getting tiles int place
         tile7 = (ImageView) findViewById(R.id.tile7);                                                   // adding the actual tile images to the board
         submit_button = (ImageView) findViewById(R.id.submit_button);
-        tile1.setImageResource(R.mipmap.alpha_l);                                                       // adding the actual tile images to the board
-        tile2.setImageResource(R.mipmap.alpha_e);                                                       // adding the actual tile images to the board
-        tile3.setImageResource(R.mipmap.alpha_a);                                                       // adding the actual tile images to the board
-        tile4.setImageResource(R.mipmap.alpha_s);                                                       // adding the actual tile images to the board
-        tile5.setImageResource(R.mipmap.alpha_t);                                                       // adding the actual tile images to the board
         falsifyLetters();
         submit_button.setTag(new ImageProperties(true, "submit"));
 
@@ -90,7 +69,7 @@ public class GamePlay1 extends Activity implements View.OnClickListener {
     private void getInputFile(String file) {
         TextView textViewNumTokens = (TextView) findViewById(R.id.words_matched);
         try {                                                                                           // try the file and make sure it exists
-            InputStreamReader inputs = new InputStreamReader(getAssets().open(file));                   // input the anagrams.txt file that will be in the src/main/assets directory
+            InputStreamReader inputs = new InputStreamReader(getAssets().open(file));                   // input the anagrams1.txt file that will be in the src/main/assets directory
             BufferedReader br = new BufferedReader(inputs);                                             // Read the inputs in
             words = br.readLine().split(" ");                                                           // start counting how many words there. We can tell this by the spaces between each word
             //textViewAnagramWord.setText(words[0]);                                                    // TODO, this sets the Anagram text, what we need to do is call a function to populate the tiles when this is ran (Line 84)
@@ -117,7 +96,7 @@ public class GamePlay1 extends Activity implements View.OnClickListener {
             str = str.append(imageProperties.appendLetter);                                         //
             disp.setText(str);                                                                      //
             imageView.setColorFilter(Color.argb(150, 200, 200, 200));                               //
-            imageProperties.setFlag(true);                                                       //
+            imageProperties.setFlag(true);                                                          //
         }
         if (imageProperties.appendLetter == "submit") {
             final TextView textViewNumTokens = (TextView) findViewById(R.id.words_matched);         // set the variable to hold the layout's location
@@ -149,6 +128,31 @@ public class GamePlay1 extends Activity implements View.OnClickListener {
         }
     }
 
+    public void falsifyLetters() {
+        tile1.setImageResource(R.mipmap.alpha_a);                                                       // adding the actual tile images to the board
+        tile2.setImageResource(R.mipmap.alpha_p);                                                       // adding the actual tile images to the board
+        tile3.setImageResource(R.mipmap.alpha_p);                                                       // adding the actual tile images to the board
+        tile4.setImageResource(R.mipmap.alpha_s);                                                       // adding the actual tile images to the board
+//        tile5.setImageResource(R.mipmap.alpha_t);                                                       // adding the actual tile images to the board
+        tile1.setTag(new ImageProperties(false, "a"));
+        tile2.setTag(new ImageProperties(false, "p"));
+        tile3.setTag(new ImageProperties(false, "p"));
+        tile4.setTag(new ImageProperties(false, "s"));
+        tile5.setTag(new ImageProperties(false, null));
+        tile6.setTag(new ImageProperties(false, null));
+        tile7.setTag(new ImageProperties(false, null));
+    }
+
+    public void nullifyLetters() {
+        tile1.setColorFilter(null);
+        tile2.setColorFilter(null);
+        tile3.setColorFilter(null);
+        tile4.setColorFilter(null);
+        tile5.setColorFilter(null);
+        tile6.setColorFilter(null);
+        tile7.setColorFilter(null);
+    }
+
     private void shake() {
         Animation shake = AnimationUtils.loadAnimation(this, R.anim.shake);
         shake.setDuration(GameSettings.SHAKE_DURATION);
@@ -157,35 +161,20 @@ public class GamePlay1 extends Activity implements View.OnClickListener {
     }
 
     private void onRightArrowPressed() {
-                                                                                                    //TODO: utilize intent to go forward to next level
+        //TODO: utilize intent to go forward to next level
     }
 
     private void onLeftArrowPressed() {
-                                                                                                    // TODO: make left arrow visible
-                                                                                                    // TODO: utilize intent to go to previous level
+        // TODO: make left arrow visible
+        // TODO: utilize intent to go to previous level
+    }
+
+    private void onPaused() {
+        // TODO Utilize an intent to pause the game? I don't think i will implement this
+        // as it would require memory of words matched. Right now implementing it would cause loss of this
     }
 
     @Override
     public void onBackPressed() {
-    }
-
-    public void falsifyLetters(){
-        tile1.setTag(new ImageProperties(false, "l"));
-        tile2.setTag(new ImageProperties(false, "e"));
-        tile3.setTag(new ImageProperties(false, "a"));
-        tile4.setTag(new ImageProperties(false, "s"));
-        tile5.setTag(new ImageProperties(false, "t"));
-        tile6.setTag(new ImageProperties(false, null));
-        tile7.setTag(new ImageProperties(false, null));
-    }
-
-    public void nullifyLetters(){
-        tile1.setColorFilter(null);
-        tile2.setColorFilter(null);
-        tile3.setColorFilter(null);
-        tile4.setColorFilter(null);
-        tile5.setColorFilter(null);
-        tile6.setColorFilter(null);
-        tile7.setColorFilter(null);
     }
 }
