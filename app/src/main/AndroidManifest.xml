@@ -31,7 +31,7 @@
             />
 
         <activity
-            android:name=".GamePlay"
+            android:name=".GamePlay1"
             android:label="@string/game_play"
             android:theme="@style/AppTheme.NoActionBar"
             />

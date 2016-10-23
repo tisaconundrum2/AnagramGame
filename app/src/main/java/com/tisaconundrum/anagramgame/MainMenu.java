@@ -75,7 +75,7 @@ public class MainMenu extends AppCompatActivity {
                     @Override
                     public void run() {
                         try {
-                            Intent settingsIntent = new Intent(MainMenu.this, GamePlay.class);
+                            Intent settingsIntent = new Intent(MainMenu.this, GamePlay1.class);
                             settingsIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION); //this checks that all animations are done before moving foward
                             startActivity(settingsIntent);
                         } catch (Exception e){

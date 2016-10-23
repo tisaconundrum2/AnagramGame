@@ -124,7 +124,7 @@ public class Settings extends AppCompatActivity {
 
     private void titleAnimate() {
         titleLeft = (TextView) findViewById(R.id.title_bar_left);
-        titleMiddle = (TextView) findViewById(R.id.title_settings);
+        titleMiddle = (TextView) findViewById(R.id.title_pause);
         titleRight = (TextView) findViewById(R.id.title_bar_right);
 
         compileAnimation = AnimationUtils.loadAnimation(Settings.this, R.anim.back_anim_for_title_left);

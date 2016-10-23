@@ -12,7 +12,7 @@
     tools:context="com.tisaconundrum.anagramgame.Settings">
 
     <TextView
-        android:id="@+id/title_settings"
+        android:id="@+id/title_pause"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/title_bar_left"
@@ -25,10 +25,10 @@
         android:id="@+id/title_bar_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/title_settings"
-        android:layout_alignBottom="@id/title_settings"
+        android:layout_alignBaseline="@id/title_pause"
+        android:layout_alignBottom="@id/title_pause"
         android:layout_marginLeft="18sp"
-        android:layout_toRightOf="@id/title_settings"
+        android:layout_toRightOf="@id/title_pause"
         android:text="@string/title_bar_right"
         android:textSize="25sp" />
 
@@ -39,7 +39,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginRight="14sp"
         android:layout_marginTop="72sp"
-        android:layout_toLeftOf="@id/title_settings"
+        android:layout_toLeftOf="@id/title_pause"
         android:text="@string/title_bar_left"
         android:textSize="25sp" />
 
@@ -48,7 +48,7 @@
         android:id="@+id/min_num_tile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/title_settings"
+        android:layout_below="@+id/title_pause"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40sp"
         android:text="@string/minimum_number_of_blocks"
