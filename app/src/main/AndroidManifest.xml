@@ -21,26 +21,34 @@
         <activity
             android:name=".Settings"
             android:label="@string/action_settings"
-            android:theme="@style/AppTheme.NoActionBar"
-            />
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:name=".Credits"
             android:label="@string/title_credits"
-            android:theme="@style/AppTheme.NoActionBar"
-            />
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:name=".GamePlay1"
             android:label="@string/game_play"
-            android:theme="@style/AppTheme.NoActionBar"
-            />
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".GamePlay2"
+            android:label="@string/game_play"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".GamePlay3"
+            android:label="@string/game_play"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".GamePlay4"
+            android:label="@string/game_play"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:name=".GameOver"
             android:label="@string/game_over"
-            android:theme="@style/AppTheme.NoActionBar"
-            />
+            android:theme="@style/AppTheme.NoActionBar" />
 
     </application>
 

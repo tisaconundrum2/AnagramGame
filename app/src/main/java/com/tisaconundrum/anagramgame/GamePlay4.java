@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.view.View;
 import android.view.animation.Animation;
@@ -25,6 +26,8 @@ public class GamePlay4 extends Activity implements View.OnClickListener {
     private int totalwords = 0;
 
     boolean shake_flag = false;
+    private ImageView left_arrow;
+    private ImageView right_arrow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +38,8 @@ public class GamePlay4 extends Activity implements View.OnClickListener {
         decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);                                // Make our game full screen, so we don't have to worry about the top bar
         initTiles();                                                                                    // initialize all our tiles, and get them prepped to be worked with
         getInputFile(DATA_FILE);                                                                        // we need our dictionary of words to match against.
-
+        onLeftArrowPressed();
+        onRightArrowPressed();
 
     }
 
@@ -162,13 +166,58 @@ public class GamePlay4 extends Activity implements View.OnClickListener {
         gamePlayLayout.startAnimation(shake);
     }
 
-    private void onRightArrowPressed() {
-        //TODO: utilize intent to go forward to next level
+    private void onLeftArrowPressed() {
+        {
+            left_arrow = (ImageView) findViewById(R.id.left_arrow);
+            left_arrow.setVisibility(View.VISIBLE);
+            left_arrow.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                Intent settingsIntent = new Intent(GamePlay4.this, GamePlay3.class);
+                                settingsIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION); //this checks that all animations are done before moving foward
+                                startActivity(settingsIntent);
+                            } catch (Exception e){
+                                System.err.println(e.getMessage());
+                            }
+                        }
+                    }, GameSettings.START_NEW_ACTIVITY_DURATION);
+
+                }
+            });
+        }
+
     }
 
-    private void onLeftArrowPressed() {
-        // TODO: make left arrow visible
-        // TODO: utilize intent to go to previous level
+    private void onRightArrowPressed() {
+        {
+            right_arrow = (ImageView) findViewById(R.id.right_arrow);
+            right_arrow.setVisibility(View.INVISIBLE);
+            right_arrow.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                Intent settingsIntent = new Intent(GamePlay4.this, GamePlay4.class);
+                                settingsIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION); //this checks that all animations are done before moving foward
+                                startActivity(settingsIntent);
+                            } catch (Exception e){
+                                System.err.println(e.getMessage());
+                            }
+                        }
+                    }, GameSettings.START_NEW_ACTIVITY_DURATION);
+
+                }
+            });
+        }
+
     }
 
     private void onPaused() {
