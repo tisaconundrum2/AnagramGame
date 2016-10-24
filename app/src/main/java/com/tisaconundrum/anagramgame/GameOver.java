@@ -1,6 +1,8 @@
 package com.tisaconundrum.anagramgame;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -22,6 +24,8 @@ public class GameOver extends AppCompatActivity{
     private TextView titleRight;
     private Animation compileAnimation;
     private ImageView homebutton;
+    private TextView scoreTextView;
+    private TextView highScoreTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -38,6 +42,8 @@ public class GameOver extends AppCompatActivity{
         }
         titleAnimate();
         homebutton();
+        initScore();
+        initHighScore();
     }
 
     private void homebutton() {
@@ -64,6 +70,35 @@ public class GameOver extends AppCompatActivity{
             });
         }
 
+    }
+
+    private void initScore() {
+        scoreTextView = (TextView) findViewById(R.id.score);
+        SharedPreferences preferences = getApplicationContext().getSharedPreferences(
+                GameSettings.PREFS_NAME, Context.MODE_PRIVATE);
+        int playersScore = preferences.getInt(GameSettings.PLAYER_SCORE, 0);
+        scoreTextView.setText("Player Score \n\n" + String.valueOf(playersScore));
+
+    }
+
+    private void initHighScore() {
+        highScoreTextView = (TextView) findViewById(R.id.high_score);
+        setHighScore();
+    }
+
+    private void setHighScore() {
+        SharedPreferences preferences = getApplicationContext().getSharedPreferences(
+                GameSettings.PREFS_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        int highScore = preferences.getInt(GameSettings.HIGH_SCORE, 0);
+        int lastScore = preferences.getInt(GameSettings.PLAYER_SCORE, 0);
+        if(lastScore > highScore) {
+            editor.putInt(GameSettings.HIGH_SCORE, lastScore);
+            editor.commit();
+            highScore = lastScore;
+        }
+
+        highScoreTextView.setText("High Score \n\n" + String.valueOf(highScore));
     }
 
     private void titleAnimate(){

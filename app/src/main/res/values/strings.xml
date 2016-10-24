@@ -11,15 +11,15 @@
     <string name="designer">Designer</string>
     <string name="designer_name">Zach Patten</string>
     <string name="game_over">GAME OVER</string>
-    <string name="score">Score:</string>
+    <string name="score">Player Score:</string>
     <string name="score_total">00</string>
-    <string name="high_score">High Score</string>
+    <string name="high_score">High Score: </string>
     <string name="high_score_total">00</string>
     <string name="maximum_number_of_blocks">Maximum Number of tiles:</string>
     <string name="minimum_number_of_blocks">Minimum Number of tiles:</string>
-    <string name="title_settings">SETTINGS</string>
     <string name="title_pause">GAME PAUSED</string>
     <string name="game_play">GAME PLAY</string>
+    <string name="title_settings">SETTINGS</string>
 
 
 </resources>

@@ -15,7 +15,7 @@ public class GameSettings {
 
     public static final String PREFS_NAME = "AnagPreferences";
 
-    public static final int GAME_THREAD = 80;
+    public static final int GAME_TIMER = 80000;
 
     public static final int SWIPE_THRESH_HOLD = 100;
     public static final int SWIPE_VELOCITY_THRESH_HOLD = 100;

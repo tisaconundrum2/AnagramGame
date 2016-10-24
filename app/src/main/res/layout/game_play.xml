@@ -56,17 +56,6 @@
         android:scaleType="fitCenter"
         android:src="@mipmap/pause_button" />
 
-    <TextView
-        android:id="@+id/words_matched"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_weight="1"
-        android:text="Words matched 0/0"
-        android:textAlignment="center"
-
-        android:textSize="20dp" />
-
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
@@ -173,5 +162,26 @@
         android:layout_marginBottom="150dp"
         android:scaleType="fitCenter"
         android:src="@mipmap/submit" />
+
+    <TextView
+        android:id="@+id/words_matched"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="13dp"
+        android:layout_weight="1"
+        android:text="Words matched 0/0"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/words_matched"
+        android:text="Timer: "
+        android:textSize="20dp" />
 
 </RelativeLayout>

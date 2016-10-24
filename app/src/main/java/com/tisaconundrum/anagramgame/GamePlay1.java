@@ -1,9 +1,12 @@
 package com.tisaconundrum.anagramgame;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.text.Editable;
 import android.view.View;
@@ -17,6 +20,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import static com.tisaconundrum.anagramgame.GameSettings.GAME_TIMER;
+
 public class GamePlay1 extends Activity implements View.OnClickListener {
     private RelativeLayout gamePlayLayout;
     private String DATA_FILE = "anagrams1.txt";
@@ -24,10 +29,10 @@ public class GamePlay1 extends Activity implements View.OnClickListener {
     private String[] words;
     private int wordsfound = 0;
     private int totalwords = 0;
-
     boolean shake_flag = false;
     private ImageView left_arrow;
     private ImageView right_arrow;
+    private boolean timer_flag = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +44,7 @@ public class GamePlay1 extends Activity implements View.OnClickListener {
         initTiles();                                                                                    // initialize all our tiles, and get them prepped to be worked with
         getInputFile(DATA_FILE);                                                                        // we need our dictionary of words to match against.
         onRightArrowPressed();
+
 
 
     }
@@ -64,10 +70,7 @@ public class GamePlay1 extends Activity implements View.OnClickListener {
             tile6.setOnClickListener(this);                                                             // Listen out for any clicks
             tile7.setOnClickListener(this);                                                             // Listen out for any clicks
             submit_button.setOnClickListener(this);                                                     // Listen out for any clicks
-        } catch (Exception ignored) {                                                                   // ignore exceotions that may be thrown
-
-        }
-
+        } catch (Exception ignored) {}                                                                  // ignore exceotions that may be thrown
     }
 
     private void getInputFile(String file) {
@@ -103,6 +106,10 @@ public class GamePlay1 extends Activity implements View.OnClickListener {
             imageProperties.setFlag(true);                                                          //
         }
         if (imageProperties.appendLetter == "submit") {
+            if (timer_flag) {
+                runTimer();
+                timer_flag = false;
+            }
             final TextView textViewNumTokens = (TextView) findViewById(R.id.words_matched);         // set the variable to hold the layout's location
             TextView input = (TextView) findViewById(R.id.tileOutput);                              // after the click pull the string from the tileOutput box
             String submission = input.getText().toString();                                         // convert the string, probably redundant, but gotta make sure
@@ -119,8 +126,9 @@ public class GamePlay1 extends Activity implements View.OnClickListener {
                     disp.setText("");                                                              // also clear the string text
 
                     if (wordsfound == totalwords) {                                                // TODO: have the user forwarded to the Game_over layout and display score, utilize intent here
-                        Intent intent = new Intent(getApplication(), GameOver.class);              // Set the Intent, and switch to GameOver.java
-                        startActivity(intent);                                                     // Exit out of MainActivity and to GameActivity
+//                        Intent intent = new Intent(getApplication(), GameOver.class);              // Set the Intent, and switch to GameOver.java
+//                        startActivity(intent);                                                     // Exit out of MainActivity and to GameActivity
+                        timeUp();
                     }
                 }
             }
@@ -130,6 +138,20 @@ public class GamePlay1 extends Activity implements View.OnClickListener {
             shake_flag = false;                                                                    // reset the flag, so we shake again
             input.setSelectAllOnFocus(true);
         }
+    }
+
+    private void runTimer() {
+        final TextView mTextField = (TextView) findViewById(R.id.timer);
+        new CountDownTimer(GAME_TIMER, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                mTextField.setText("Timer: " + millisUntilFinished / 1000);
+            }
+
+            public void onFinish() {
+                timeUp();
+            }
+        }.start();
     }
 
     public void falsifyLetters() {
@@ -216,6 +238,15 @@ public class GamePlay1 extends Activity implements View.OnClickListener {
             });
         }
 
+    }
+
+    private void timeUp() {
+        SharedPreferences preferences = getApplicationContext().getSharedPreferences(GameSettings.PREFS_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt(GameSettings.PLAYER_SCORE, wordsfound);
+        editor.commit();
+        Intent intentScore = new Intent(this, GameOver.class);
+        startActivity(intentScore);
     }
 
     private void onPaused() {
